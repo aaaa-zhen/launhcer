@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,52 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LauncherDemo</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
 
         body, html {
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: black;
+            background: #fff;
         }
 
-        .main {
-            text-align: center;
+        .video-container {
+            position: relative;
+            width: 340px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         video {
+            width: 100%;
+            height: auto;
             display: block;
-            margin: 0 auto;
-        }
-        #sourceLink {
-            color: rgb(31, 145, 238);
-            font-size: 14px; 
-            text-decoration: none; 
+            background: #000;
         }
 
-        #sourceLink:hover {
-            text-decoration: underline; 
-        }
-        p{
-            color: white;
+        /* 自定义视频控件样式 */
+        video::-webkit-media-controls-panel {
+            background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
         }
 
+        video::-webkit-media-controls-play-button {
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
 
+        video::-webkit-media-controls-timeline {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin: 0 10px;
+        }
 
-</style>
+        video::-webkit-media-controls-current-time-display,
+        video::-webkit-media-controls-time-remaining-display {
+            color: #fff;
+        }
+
+        video::-webkit-media-controls-volume-slider {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            padding: 0 5px;
+        }
+
+        .text-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        p {
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 650px) {
+            .video-container {
+                width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="main">
-
-        <!-- <h1>Ttitle</h1> -->
-        <video controls width="800" height="600" src="video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <p>Launche app with filing gesture</p>
-
-
-</div>
-
-    
+    <div>
+        <div class="video-container">
+            <video controls src="video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="text-container">
+            <p>Launch app with filing gesture</p>
+        </div>
+    </div>
 </body>
 </html>
